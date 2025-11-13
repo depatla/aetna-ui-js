@@ -1,0 +1,12 @@
+.arrowLeft,
+.arrowRight {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.dropdown {
+  font-size: 18px;
+  line-height: 1;
+  margin-left: 2px;
+}

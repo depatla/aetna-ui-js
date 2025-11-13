@@ -1,0 +1,109 @@
+.container {
+  padding: 1rem;
+  max-width: 80rem;
+  margin: auto;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 0.88rem;
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+/* ---------- Tabs ---------- */
+
+.tabs {
+  position: relative;
+  display: inline-flex;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(12px);
+}
+
+.tab {
+  padding: 0.6rem 1.25rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #6b7280;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  transition: color 0.2s ease, background 0.2s ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: #4c1d95;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.activeTab {
+  color: #6d28d9;
+  font-weight: 600;
+}
+
+.tabIndicator {
+  position: absolute;
+  bottom: -1px;
+  height: 3px;
+  background: linear-gradient(90deg, #7c3aed, #6d28d9);
+  border-radius: 3px;
+  transition: 0.3s ease;
+}
+
+/* ---------- Search Row ---------- */
+
+.searchRow {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 40rem;
+}
+
+.input {
+  flex: 1;
+  height: 3rem;
+  padding: 0 1rem;
+  border: 1px solid #d1d5db;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.07);
+}
+
+.input:focus {
+  outline: none;
+  border-color: #6d28d9;
+}
+
+.button {
+  height: 3rem;
+  padding: 0 1.6rem;
+  background: linear-gradient(135deg, #7c3aed, #5b21b6);
+  color: white;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #6d28d9, #4c1d95);
+}
+
+.button:disabled {
+  background: #a1a1aa;
+  cursor: not-allowed;
+}
+
+.searchIcon {
+  width: 1.2rem;
+  height: 1.2rem;
+}

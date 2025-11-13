@@ -1,0 +1,26 @@
+.linkBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #6d28d9;
+  cursor: pointer;
+  font-size: 0.85rem;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.linkBtn:hover {
+  text-decoration: underline;
+}
+
+/* Icons can be replaced with SVG later if needed */
+.eyeIcon {
+  font-size: 17px;
+  opacity: 0.9;
+}
+
+.arrowIcon {
+  font-size: 14px;
+  opacity: 0.9;
+}

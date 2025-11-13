@@ -1,15 +1,6 @@
 // ApprovedConfigurations.jsx
 import React, { useState } from "react";
-import {
-  Box,
-  Typography,
-  TextField,
-  Button,
-  Container,
-  Tabs,
-  Tab,
-} from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+import styles from "./ApprovedConfigurations.module.css";
 
 export default function ApprovedConfigurations() {
   const [activeTab, setActiveTab] = useState(0);
@@ -32,92 +23,50 @@ export default function ApprovedConfigurations() {
   const isValid = inputValue.length === 7;
 
   return (
-    <Container sx={{ px: 4 }}>
+    <div className={styles.container}>
       {/* Section Title */}
-      <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
-        Approved configurations
-      </Typography>
+      <h6 className={styles.title}>Approved configurations</h6>
 
       {/* Subtitle */}
-      <Typography
-        variant="body2"
-        sx={{
-          color: "text.secondary",
-          fontSize: "0.85rem",
-          mb: 2,
-        }}
-      >
+      <p className={styles.subtitle}>
         Search for approved configurations by 7-digit plan approval number or by control number
-      </Typography>
+      </p>
 
       {/* Tabs */}
-      <Tabs
-        value={activeTab}
-        onChange={handleTabChange}
-        sx={{
-          mb: 2,
-          "& .MuiTab-root": {
-            textTransform: "none",
-            fontWeight: 500,
-            fontSize: "0.85rem",
-            color: "text.secondary",
-            minHeight: 40,
-          },
-          "& .Mui-selected": {
-            color: "primary.main",
-            fontWeight: 600,
-          },
-          "& .MuiTabs-indicator": {
-            backgroundColor: "primary.main",
-          },
-        }}
-      >
-        <Tab label="Search by policyholder number" />
-        <Tab label="Search by control number" />
-      </Tabs>
+      <div className={styles.tabs}>
+        <button
+          className={`${styles.tab} ${activeTab === 0 ? styles.activeTab : ""}`}
+          onClick={() => handleTabChange(null, 0)}
+        >
+          Search by policyholder number
+        </button>
+        <button
+          className={`${styles.tab} ${activeTab === 1 ? styles.activeTab : ""}`}
+          onClick={() => handleTabChange(null, 1)}
+        >
+          Search by control number
+        </button>
+        <div className={styles.tabIndicator} style={{ left: activeTab === 0 ? "0" : "50%" }} />
+      </div>
 
-      {/* Search Row — EXACT SAME DESIGN */}
-      <Box
-        sx={{
-          display: "flex",
-          gap: 2,
-          alignItems: "center",
-          maxWidth: 800,
-        }}
-      >
-        <TextField
-          fullWidth
+      {/* Search Row */}
+      <div className={styles.searchRow}>
+        <input
+          className={styles.input}
           placeholder={isPolicyholderTab ? "XXXXXXX" : "xxxxxxx"}
           value={inputValue}
           onChange={handleInputChange}
-          variant="outlined"
-          inputProps={{
-            maxLength: 7,
-            inputMode: "numeric",
-          }}
-          InputProps={{
-            sx: { height: 46, borderRadius: "0" }, // UNCHANGED
-          }}
+          maxLength={7}
+          inputMode="numeric"
         />
 
-        <Button
-          variant="contained"
-          disabled={!isValid}
-          sx={{
-            bgcolor: "#6A1B9A",
-            px: 4,
-            height: 46,
-            textTransform: "none",
-            fontWeight: 600,
-            "&:hover": { bgcolor: "#5b1488" },
-            "&:disabled": { bgcolor: "#B0B0B0" },
-            borderRadius: "0",
-          }}
-          endIcon={<SearchIcon />}
-        >
+        <button className={styles.button} disabled={!isValid}>
           Search
-        </Button>
-      </Box>
-    </Container>
+          <svg className={styles.searchIcon} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 21L15.0001 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
   );
 }
